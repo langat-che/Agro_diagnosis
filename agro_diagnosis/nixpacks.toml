@@ -1,9 +1,10 @@
 [phases.setup]
-nixPkgs = ["python310", "postgresql", "gcc"]
+nixPkgs = ["python310", "postgresql", "gcc", "libpq", "postgresql.lib", "python310Packages.psycopg2"]
 
 [phases.install]
 cmds = [
   "python -m venv /opt/venv",
+  ". /opt/venv/bin/activate && pip install --upgrade pip",
   ". /opt/venv/bin/activate && pip install -r requirements.txt"
 ]
 
