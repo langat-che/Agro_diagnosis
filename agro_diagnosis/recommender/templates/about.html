@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About - Plant Disease Detection System{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-light py-5 text-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="display-4 fw-bold">About Our Project</h1>
+                <p class="lead text-muted mb-4">Empowering farmers with AI-driven plant disease detection</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Statement -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'images/mission.jpg' %}" alt="Our Mission" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Our Mission</h2>
+                <hr class="divider my-4">
+                <p class="lead">We're dedicated to supporting sustainable agriculture through accessible technology.</p>
+                <p>Our plant disease detection system helps farmers identify crop diseases early, reducing crop loss and improving yields. By making advanced technology accessible to farmers of all scales, we aim to contribute to food security and sustainable agricultural practices.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">How Our System Works</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                            <i class="bi bi-camera-fill"></i>
+                        </div>
+                        <h5 class="card-title">Upload Image</h5>
+                        <p class="card-text">Take a photo of your plant and upload it to our system.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+                        <h5 class="card-title">AI Analysis</h5>
+                        <p class="card-text">Our machine learning model analyzes the image to identify diseases and pests.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                            <i class="bi bi-clipboard-data"></i>
+                        </div>
+                        <h5 class="card-title">Get Results</h5>
+                        <p class="card-text">Receive detailed diagnosis and treatment recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                <img src="{% static 'images/technology.jpg' %}" alt="Our Technology" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h2 class="fw-bold">Our Technology</h2>
+                <hr class="divider my-4">
+                <p>Our disease detection system uses state-of-the-art deep learning techniques:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Convolutional Neural Networks (CNN) for image classification</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Trained on thousands of plant disease images</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Detects diseases across multiple crop types</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Regularly updated with new disease patterns</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Built with PyTorch and Django</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Meet Our Team</h2>
+        <div class="row">
+            <!-- Team Member 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <img src="{% static 'images/team/team-member-1.jpg' %}" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dr. Jane Smith</h5>
+                        <p class="text-muted">Lead Data Scientist</p>
+                        <p class="card-text">PhD in Computer Vision with 10 years of experience in agricultural AI applications.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <img src="{% static 'images/team/team-member-2.jpg' %}" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mark Johnson</h5>
+                        <p class="text-muted">Agricultural Expert</p>
+                        <p class="card-text">Agricultural engineer with expertise in crop diseases and sustainable farming practices.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <img src="{% static 'images/team/team-member-3.jpg' %}" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Maria Garcia</h5>
+                        <p class="text-muted">Software Developer</p>
+                        <p class="card-text">Full-stack developer specializing in machine learning model deployment and user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-3">Ready to try our system?</h2>
+        <p class="lead mb-4">Start detecting plant diseases and get recommendations today.</p>
+        <a href="#" class="btn btn-light btn-lg px-4 me-md-2">Upload an Image</a>
+        <a href="#" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Frequently Asked Questions</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How accurate is the disease detection?
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our system achieves an average accuracy of 85-90% across most common crop diseases. The accuracy is continuously improving as we train our models with more data.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                What crops can the system identify diseases for?
+                            </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Currently, our system can identify diseases in maize, tomato, and onion crops. We're actively working to expand our coverage to include more crop types.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                How do I take the best photo for accurate detection?
+                            </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                For best results, take clear, well-lit photos that focus on the affected plant parts. Make sure the diseased area is clearly visible and try to capture it from multiple angles if possible. Avoid shadows and blur.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+    }
+    
+    .divider {
+        max-width: 3.25rem;
+        height: 0.2rem;
+        background-color: #198754;
+        opacity: 1;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}

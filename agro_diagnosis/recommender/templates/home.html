@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0">Crop Disease Detector</h3>
+                </div>
+                <div class="card-body">
+                    <p class="lead">Upload an image of your crop <b>(Maize, Tomato or Onion)</b> to detect diseases and get recommendations.</p>
+                    
+                    <form method="post" action="{% url 'predict_image' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.image.id_for_label }}" class="form-label">Select Crop Image:</label>
+                            {{ form.image }}
+                        </div>
+                        
+                        <div class="text-center">
+                            <div id="image-preview-container" class="mt-3 mb-3" style="display: none;">
+                                <img id="image-preview" class="img-fluid rounded" style="max-height: 300px;" alt="Image Preview">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-search-plus"></i> Analyze Crop
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5>How it works:</h5>
+                    <ol>
+                        <li>Upload a clear image of your crop leaf, plant or bulb</li>
+                        <li>Our AI model will analyze the image</li>
+                        <li>View the disease detection results and recommendations</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Image preview script
+    document.getElementById('{{ form.image.id_for_label }}').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewContainer = document.getElementById('image-preview-container');
+                const preview = document.getElementById('image-preview');
+                preview.src = e.target.result;
+                previewContainer.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+{% endblock %}
