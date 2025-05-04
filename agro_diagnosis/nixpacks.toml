@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ["python310", "postgresql", "gcc"]
+nixPkgs = ["python310", "python310Packages.pip", "postgresql", "gcc"]
 
 [phases.install]
-cmds = ["python3 -m pip install --upgrade pip", "pip install -r requirements.txt"]
+cmds = ["pip install -r requirements.txt"]
 
 [phases.build]
 cmds = ["python manage.py collectstatic --noinput"]
