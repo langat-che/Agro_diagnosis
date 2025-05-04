@@ -6,6 +6,7 @@ class Prediction(models.Model):
     result = models.CharField(max_length=100, blank=True)
     accuracy = models.FloatField(default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
+    crop_class = models.CharField(max_length=50, blank=True, null=True)
     
     def __str__(self):
         return f"{self.result} ({self.accuracy:.2f}%)"

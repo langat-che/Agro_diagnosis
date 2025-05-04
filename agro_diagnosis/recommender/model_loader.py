@@ -25,6 +25,13 @@ class DiseasePredictor:
             "tomato_diseases",
             "tomato_pests"
         ]
+        
+        # Define crop outer classes
+        self.crop_outer_classes = {
+            "maize": ["maize_diseases", "maize_pests", "maize_pests_activities"],
+            "onion": ["onion_diseases", "onion_pests"],
+            "tomato": ["tomato_diseases", "tomato_pests"]
+        }
 
         # Define the hierarchical structure mapping
         self.category_to_subclasses = {
@@ -73,18 +80,50 @@ class DiseasePredictor:
         img_tensor = img_tensor.unsqueeze(0)  # Add batch dimension
         return img_tensor.to(self.device)
 
-    def predict(self, image_path):
-        """Make prediction on the input image"""
+    def predict(self, image_path, selected_crop=None):
+        """
+        Make prediction on the input image with optional crop selection
+        
+        Args:
+            image_path: Path to the image file
+            selected_crop: Optional crop selection ('maize', 'onion', or 'tomato')
+                           to filter prediction categories
+        """
         try:
             img = self.preprocess_image(image_path)
-
+            
             with torch.no_grad():
                 outputs = self.model(img)
                 
-                # Get prediction for main category
-                _, category_index = torch.max(outputs, 1)
+                # Get probabilities for all main categories
                 category_probs = torch.nn.functional.softmax(outputs[0], dim=0)
-                category_confidence = float(category_probs[category_index.item()]) * 100
+                
+                # If a crop is selected, filter prediction to only include relevant categories
+                if selected_crop and selected_crop in self.crop_outer_classes:
+                    allowed_categories = self.crop_outer_classes[selected_crop]
+                    
+                    # Create a mask for allowed categories
+                    mask = torch.zeros_like(category_probs)
+                    for i, category in enumerate(self.main_categories):
+                        if category in allowed_categories:
+                            mask[i] = 1.0
+                    
+                    # Apply mask to zero out probabilities for non-relevant categories
+                    masked_probs = category_probs * mask
+                    
+                    # Get the highest probability among allowed categories
+                    if torch.max(masked_probs) > 0:
+                        _, category_index = torch.max(masked_probs, 0)
+                        category_confidence = float(masked_probs[category_index.item()]) * 100
+                    else:
+                        # Fallback if no allowed category has probability > 0
+                        _, category_index = torch.max(category_probs, 0)
+                        category_confidence = float(category_probs[category_index.item()]) * 100
+                        print(f"Warning: No strong match found for {selected_crop}, using best overall prediction")
+                else:
+                    # If no crop filter, use the highest probability category
+                    _, category_index = torch.max(category_probs, 0)
+                    category_confidence = float(category_probs[category_index.item()]) * 100
                 
                 # Get the predicted main category
                 main_category = self.main_categories[category_index.item()]
@@ -113,7 +152,8 @@ class DiseasePredictor:
                 'cause': recommendation.get('description', 'Information not available'),
                 'remedy': "\n".join(recommendation.get('management', ['Information not available'])),
                 'healthy_image': recommendation.get('healthy_image', None),
-                'possible_subclasses': possible_subclasses,  # Include all possible subclasses for this category
+                'possible_subclasses': possible_subclasses,
+                'selected_crop': selected_crop
             }
 
         except Exception as e:
@@ -125,15 +165,20 @@ class DiseasePredictor:
                 'cause': f'Error: {str(e)}',
                 'remedy': 'Please try again with a different image',
                 'healthy_image': None,
-                'possible_subclasses': []
+                'possible_subclasses': [],
+                'selected_crop': selected_crop
             }
 
-    def predict_with_subclass(self, image_path, selected_subclass=None):
+    def predict_with_subclass(self, image_path, selected_crop=None, selected_subclass=None):
         """
-        Make prediction with optional specific subclass selection.
-        If selected_subclass is None, it will use the first subclass in the category.
+        Make prediction with optional crop selection and specific subclass selection.
+        
+        Args:
+            image_path: Path to the image file
+            selected_crop: Optional crop selection ('maize', 'onion', or 'tomato')
+            selected_subclass: If provided, use this subclass for detailed results
         """
-        result = self.predict(image_path)
+        result = self.predict(image_path, selected_crop)
         
         if selected_subclass is not None and 'possible_subclasses' in result:
             if selected_subclass in result['possible_subclasses']:
@@ -149,6 +194,10 @@ class DiseasePredictor:
                 result['healthy_image'] = recommendation.get('healthy_image', None)
         
         return result
+    
+    def get_crop_options(self):
+        """Return the available crop options for the user interface"""
+        return list(self.crop_outer_classes.keys())
 
 # Create a singleton instance
 predictor = None
