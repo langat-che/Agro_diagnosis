@@ -20,9 +20,9 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy project
 COPY . .
 
-# Collect static and run migrations
-RUN python manage.py migrate
+# Collect static and runmigrations
 RUN python manage.py collectstatic --noinput
+RUN python manage.py migrate
 
 # Run app with Gunicorn
-CMD gunicorn agro_diagnosis.wsgi:application --bind 0.0.0.0:8080 --workers=3
+CMD gunicorn agro_diagnosis.wsgi:application --bind 0.0.0.0:$PORT --log-file -
