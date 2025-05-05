@@ -25,4 +25,4 @@ RUN python manage.py collectstatic --noinput
 RUN python manage.py migrate
 
 # Run app with Gunicorn
-CMD gunicorn agro_diagnosis.wsgi:application --bind 0.0.0.0:$PORT --log-file -
+CMD gunicorn agro_diagnosis.wsgi:application --workers 1 --log-file -
