@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{% static 'images/mission.jpg' %}" alt="Our Mission" class="img-fluid rounded shadow">
+                <img src="{% static 'images/mission.webp' %}" alt="Our Mission" class="img-fluid rounded shadow">
             </div>
             <div class="col-lg-6">
                 <h2 class="fw-bold">Our Mission</h2>
@@ -106,10 +106,10 @@
             <!-- Team Member 1 -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card border-0 shadow-sm h-100">
-                    <img src="{% static 'images/team/team-member-1.jpg' %}" class="card-img-top" alt="Team Member">
+                    {% comment %} <img src="{% static 'images/team/team-member-1.jpg' %}" class="card-img-top" alt="Team Member"> {% endcomment %}
                     <div class="card-body text-center">
-                        <h5 class="card-title">Dr. Jane Smith</h5>
-                        <p class="text-muted">Lead Data Scientist</p>
+                        <h5 class="card-title">Adnan Mohamud</h5>
+                        <p class="text-muted">Dev Ops Engineer</p>
                         <p class="card-text">PhD in Computer Vision with 10 years of experience in agricultural AI applications.</p>
                     </div>
                 </div>
@@ -118,10 +118,10 @@
             <!-- Team Member 2 -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card border-0 shadow-sm h-100">
-                    <img src="{% static 'images/team/team-member-2.jpg' %}" class="card-img-top" alt="Team Member">
+                    {% comment %} <img src="{% static 'images/team/team-member-2.jpg' %}" class="card-img-top" alt="Team Member"> {% endcomment %}
                     <div class="card-body text-center">
-                        <h5 class="card-title">Mark Johnson</h5>
-                        <p class="text-muted">Agricultural Expert</p>
+                        <h5 class="card-title">Amase Oyakapeli</h5>
+                        <p class="text-muted">Project Manager</p>
                         <p class="card-text">Agricultural engineer with expertise in crop diseases and sustainable farming practices.</p>
                     </div>
                 </div>
@@ -130,10 +130,34 @@
             <!-- Team Member 3 -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card border-0 shadow-sm h-100">
-                    <img src="{% static 'images/team/team-member-3.jpg' %}" class="card-img-top" alt="Team Member">
+                    {% comment %} <img src="{% static 'images/team/team-member-3.jpg' %}" class="card-img-top" alt="Team Member"> {% endcomment %}
                     <div class="card-body text-center">
-                        <h5 class="card-title">Maria Garcia</h5>
-                        <p class="text-muted">Software Developer</p>
+                        <h5 class="card-title">Beverlyne Langat</h5>
+                        <p class="text-muted">Team Lead & Software Developer</p>
+                        <p class="card-text">Full-stack developer specializing in machine learning model deployment and user experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    {% comment %} <img src="{% static 'images/team/team-member-3.jpg' %}" class="card-img-top" alt="Team Member"> {% endcomment %}
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Kelvin Nyawira</h5>
+                        <p class="text-muted">Machine Learning Engineer</p>
+                        <p class="card-text">Full-stack developer specializing in machine learning model deployment and user experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 5 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    {% comment %} <img src="{% static 'images/team/team-member-3.jpg' %}" class="card-img-top" alt="Team Member"> {% endcomment %}
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Felix Mwendwa</h5>
+                        <p class="text-muted">Data Scientist</p>
                         <p class="card-text">Full-stack developer specializing in machine learning model deployment and user experience.</p>
                     </div>
                 </div>
@@ -147,7 +171,7 @@
     <div class="container text-center">
         <h2 class="fw-bold mb-3">Ready to try our system?</h2>
         <p class="lead mb-4">Start detecting plant diseases and get recommendations today.</p>
-        <a href="#" class="btn btn-light btn-lg px-4 me-md-2">Upload an Image</a>
+        <a href="{% url 'home' %}" class="btn btn-light btn-lg px-4 me-md-2">Upload an Image</a>
         <a href="#" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
     </div>
 </section>
