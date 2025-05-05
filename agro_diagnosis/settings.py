@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "django-insecure-!j1cru_aclb!728-#h)y)kyk@o)bq(eli=4^y$1w!k4rn!x(lz")
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -146,26 +146,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SECURE_SSL_REDIRECT = False
-
 
 # Railway-specific settings
 PORT = int(os.environ.get('PORT', 8000))
-
-# # Security settings for production
-# if not DEBUG:
-#     # SSL settings
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#     SECURE_SSL_REDIRECT = False
-#     SESSION_COOKIE_SECURE = True
-#     CSRF_COOKIE_SECURE = True
-    
-#     # HSTS settings
-#     SECURE_HSTS_SECONDS = 31536000  # 1 year
-#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-#     SECURE_HSTS_PRELOAD = True
-    
-#     # Content security
-#     SECURE_CONTENT_TYPE_NOSNIFF = True
-#     SECURE_BROWSER_XSS_FILTER = True
-#     X_FRAME_OPTIONS = 'DENY'
