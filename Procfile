@@ -1,0 +1,1 @@
+web: gunicorn agro_diagnosis.wsgi --log-file -
