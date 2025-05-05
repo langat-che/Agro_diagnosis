@@ -18,6 +18,8 @@ RUN pip install --upgrade pip && \
 # Copy project
 COPY . .
 
+RUN mkdir -p /app/staticfiles
+
 # Collect static files
 RUN python manage.py collectstatic --noinput
 

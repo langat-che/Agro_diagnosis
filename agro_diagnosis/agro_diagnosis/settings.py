@@ -23,15 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
+SECRET_KEY = "django-insecure-!j1cru_aclb!728-#h)y)kyk@o)bq(eli=4^y$1w!k4rn!x(lz"
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://agrodiagnosis-production.up.railway.app/').split(',')
-
 
 
 # Application definition
@@ -129,7 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
