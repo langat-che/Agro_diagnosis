@@ -6,6 +6,20 @@ from PIL import Image
 from django.conf import settings
 from pathlib import Path
 from .cnn_model import SimpleCNN
+import urllib.request
+
+def download_model_if_needed():
+    model_path = 'simple_CNN_weights.pth'
+    if not os.path.exists(model_path):
+        print("Downloading model weights...")
+        urllib.request.urlretrieve(
+            'YOUR_CLOUD_STORAGE_URL/simple_CNN_weights.pth',
+            model_path
+        )
+        print("Model downloaded successfully")
+
+# Call this function before loading your model
+download_model_if_needed()
 
 class DiseasePredictor:
     def __init__(self):
