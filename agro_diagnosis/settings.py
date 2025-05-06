@@ -31,7 +31,7 @@ DEBUG = True
 
 # allowed hosts
 ALLOWED_HOSTS = ['*', '127.0.0.1','agro-diagnosis-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://agro-diagnosis-production.up.railway.app').split(',')
+CSRF_TRUSTED_ORIGINS = ['*',"https://agro-diagnosis-production.up.railway.app/predict/"]
 
 
 # Application definition
