@@ -6,20 +6,20 @@ from PIL import Image
 from django.conf import settings
 from pathlib import Path
 from .cnn_model import SimpleCNN
-import urllib.request
 
-def download_model_if_needed():
-    model_path = 'simple_CNN_weights.pth'
-    if not os.path.exists(model_path):
-        print("Downloading model weights...")
-        urllib.request.urlretrieve(
-            'YOUR_CLOUD_STORAGE_URL/simple_CNN_weights.pth',
-            model_path
-        )
-        print("Model downloaded successfully")
+import gdown
 
-# Call this function before loading your model
-download_model_if_needed()
+# The file ID from the Google Drive share link
+file_id = "1btDeKA6tx_VMZ64qbBw596vmYniHTR30"
+
+# Local path to save the downloaded weights
+output_path = "simple_CNN_weights.pth"
+
+# Download if not already present
+if not os.path.exists(output_path):
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, output_path, quiet=False)
+
 
 class DiseasePredictor:
     def __init__(self):
@@ -75,6 +75,8 @@ class DiseasePredictor:
         num_classes = len(self.main_categories)
         self.model = SimpleCNN(num_classes=num_classes)
         self.model.load_state_dict(torch.load(model_path, map_location=self.device))
+        # Now load the model using the local path
+        self.model.load_state_dict(torch.load(output_path))
         self.model.to(self.device)
         self.model.eval()
 
