@@ -6,7 +6,6 @@ from PIL import Image
 from django.conf import settings
 from pathlib import Path
 from .cnn_model import SimpleCNN
-
 import gdown
 
 # The file ID from the Google Drive share link
@@ -75,8 +74,8 @@ class DiseasePredictor:
         num_classes = len(self.main_categories)
         self.model = SimpleCNN(num_classes=num_classes)
         self.model.load_state_dict(torch.load(model_path, map_location=self.device))
-        # Now load the model using the local path
-        self.model.load_state_dict(torch.load(output_path))
+        # # Now load the model using the local path
+        # self.model.load_state_dict(torch.load(output_path))
         self.model.to(self.device)
         self.model.eval()
 

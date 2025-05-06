@@ -27,12 +27,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DJANGO_ENV='development'
-DEBUG = True if os.environ.get('DJANGO_ENV') == 'development' else False
-
+DEBUG = True
 
 # allowed hosts
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,agrodiagnosis-production.up.railway.app').split(',')
+ALLOWED_HOSTS = ['*', '127.0.0.1','agrodiagnosis-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://agrodiagnosis-production.up.railway.app').split(',')
 
 
@@ -83,19 +81,12 @@ WSGI_APPLICATION = "agro_diagnosis.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 # Database - Railway provides a DATABASE_URL environment variable
-DATABASE_URL = os.environ.get('DATABASE_URL')
-if DATABASE_URL:
-    DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    # Fall back to SQLite for local development
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+}
 
 
 # Password validation
