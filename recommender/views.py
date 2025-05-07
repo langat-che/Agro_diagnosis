@@ -4,8 +4,20 @@ from .model_loader import get_predictor
 from .forms import ImageUploadForm
 from .models import Prediction
 import os
-import time
+from rest_framework import viewsets
+from .serializers import PredictionSerializer
 
+class PredictionViewSet(viewsets.ModelViewSet):
+    queryset = Prediction.objects.all()
+    serializer_class = PredictionSerializer
+    
+    def perform_create(self, serializer):
+        instance = serializer.save()
+        prediction_result, accuracy, crop_class = Prediction(instance.image.path)
+        instance.result = prediction_result
+        instance.accuracy = accuracy
+        instance.crop_class = crop_class
+        instance.save()
 
 def home(request):
     """Home page with upload form"""
@@ -46,11 +58,12 @@ def predict_image(request):
             context = {
                 'image_url': image.image.url,
                 'disease': result['disease'],
-                'subclass': result['subclass'], 
+                'subclass': result.get('subclass', ''),  
                 'confidence': result['confidence'],
-                'cause': result['cause'],
-                'remedy': result['remedy'],
-                'healthy_image': result['healthy_image'],
+                'cause': result.get('cause', ''),
+                'remedy': result.get('remedy', ''),
+                'remedy_organic': result.get("remedy_organic", ""),
+                'remedy_chemical': result.get("remedy_chemical", ""),
                 'prediction_id': image.id,
                 'crop_class': image.crop_class,
                 'possible_subclasses': possible_subclasses
@@ -93,11 +106,12 @@ def select_subclass(request, prediction_id):
             context = {
                 'image_url': prediction.image.url,
                 'disease': result['disease'],
-                'subclass': result['subclass'], 
+                'subclass': result.get('subclass', ''),
                 'confidence': result['confidence'],
-                'cause': result['cause'],
-                'remedy': result['remedy'],
-                'healthy_image': result['healthy_image'],
+                'cause': result.get('cause', ''),
+                'remedy': result.get('remedy', ''),
+                'remedy_organic': result.get("remedy_organic", ""),
+                'remedy_chemical': result.get("remedy_chemical", ""),
                 'prediction_id': prediction.id,
                 'crop_class': prediction.crop_class,
                 'possible_subclasses': result.get('possible_subclasses', [])

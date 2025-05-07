@@ -1,0 +1,213 @@
+{
+  "crops": {
+    "maize": {
+      "abiotics_diseases_d": {
+        "cause": "Caused by environmental stress such as drought, nutrient deficiencies, or temperature extremes.",
+        "treatment": {
+          "organic": "Improve soil health with compost and mulch, ensure proper irrigation and crop rotation.",
+          "chemical": "Foliar application of micronutrients if deficiency is diagnosed."
+        }
+      },
+      "aphids_p": {
+        "cause": "Infestation by aphids that feed on sap and transmit plant viruses.",
+        "treatment": {
+          "organic": "Spray neem oil or use lady beetles as biological control.",
+          "chemical": "Apply insecticides such as imidacloprid or thiamethoxam."
+        }
+      },
+      "curvulariosis_d": {
+        "cause": "Fungal disease caused by Curvularia spp.",
+        "treatment": {
+          "organic": "Improve air circulation and apply compost teas or Trichoderma.",
+          "chemical": "Use fungicides like mancozeb or azoxystrobin."
+        }
+      },
+      "healthy_leaf": {
+        "cause": "No visible pests or diseases.",
+        "treatment": {
+          "organic": "Maintain good agricultural practices.",
+          "chemical": "Not applicable."
+        }
+      },
+      "helminthosporiosis_d": {
+        "cause": "Fungal infection caused by Helminthosporium species.",
+        "treatment": {
+          "organic": "Crop rotation and sanitation, use of resistant varieties.",
+          "chemical": "Apply fungicides such as propiconazole or carbendazim."
+        }
+      },
+      "rust_d": {
+        "cause": "Fungal disease caused by Puccinia sorghi.",
+        "treatment": {
+          "organic": "Plant resistant varieties and use crop rotation.",
+          "chemical": "Spray fungicides like tebuconazole or mancozeb."
+        }
+      },
+      "spodoptera_frugiperda_d": {
+        "cause": "Leaf damage caused by Spodoptera frugiperda (fall armyworm) larvae.",
+        "treatment": {
+          "organic": "Use pheromone traps and biological agents like Bacillus thuringiensis.",
+          "chemical": "Apply insecticides such as lambda-cyhalothrin or chlorpyrifos."
+        }
+      },
+      "spodoptera_frugiperda_p": {
+        "cause": "Infestation by fall armyworm pest.",
+        "treatment": {
+          "organic": "Intercropping and natural enemies like Trichogramma.",
+          "chemical": "Use systemic insecticides like emamectin benzoate."
+        }
+      },
+      "stripe_d": {
+        "cause": "Symptoms may be due to maize stripe virus or nutrient imbalance.",
+        "treatment": {
+          "organic": "Remove infected plants and improve soil fertility.",
+          "chemical": "Control insect vectors with insecticides; apply micronutrients if needed."
+        }
+      }
+    },
+    "tomato": {
+      "alternaria_d": {
+        "cause": "Fungal disease caused by Alternaria solani (early blight).",
+        "treatment": {
+          "organic": "Apply compost tea and rotate crops.",
+          "chemical": "Use fungicides like chlorothalonil or mancozeb."
+        }
+      },
+      "alternaria_mite_d": {
+        "cause": "Combination of Alternaria fungal infection and mite infestation.",
+        "treatment": {
+          "organic": "Neem oil and predatory mites.",
+          "chemical": "Apply miticides and broad-spectrum fungicides."
+        }
+      },
+      "bacterial_floundering_d": {
+        "cause": "Caused by bacterial pathogens like Pseudomonas or Xanthomonas.",
+        "treatment": {
+          "organic": "Remove infected plants and apply copper-based sprays.",
+          "chemical": "Use bactericides like copper hydroxide."
+        }
+      },
+      "blossom_end_rot_d": {
+        "cause": "Calcium deficiency often due to irregular watering.",
+        "treatment": {
+          "organic": "Mulch and apply calcium-rich compost.",
+          "chemical": "Foliar sprays of calcium chloride or calcium nitrate."
+        }
+      },
+      "fusarium_d": {
+        "cause": "Fungal infection by Fusarium oxysporum causing wilt.",
+        "treatment": {
+          "organic": "Use resistant varieties and improve soil health.",
+          "chemical": "Apply systemic fungicides like benomyl."
+        }
+      },
+      "healthy_fruit": {
+        "cause": "No visible disease or pest damage.",
+        "treatment": {
+          "organic": "Continue good horticultural practices.",
+          "chemical": "Not applicable."
+        }
+      },
+      "healthy_leaf": {
+        "cause": "No visible disease or pest damage.",
+        "treatment": {
+          "organic": "Continue good horticultural practices.",
+          "chemical": "Not applicable."
+        }
+      },
+      "helicoverpa_armigera_p": {
+        "cause": "Infestation by tomato fruitworm (Helicoverpa armigera).",
+        "treatment": {
+          "organic": "Use pheromone traps and neem oil.",
+          "chemical": "Apply insecticides like spinosad or indoxacarb."
+        }
+      },
+      "mite_d": {
+        "cause": "Damage caused by spider mites sucking sap from leaves.",
+        "treatment": {
+          "organic": "Spray neem oil or use predatory mites.",
+          "chemical": "Use acaricides like abamectin."
+        }
+      },
+      "nitrogen_excess_d": {
+        "cause": "Over-application of nitrogen fertilizers.",
+        "treatment": {
+          "organic": "Balance soil nutrients using compost.",
+          "chemical": "Adjust fertilizer applications based on soil tests."
+        }
+      },
+      "sunburn_d": {
+        "cause": "Overexposure to sunlight and heat on fruit surfaces.",
+        "treatment": {
+          "organic": "Improve canopy cover and use shade nets.",
+          "chemical": "Not applicable."
+        }
+      },
+      "tomato_late_blight_d": {
+        "cause": "Caused by Phytophthora infestans, a water mold.",
+        "treatment": {
+          "organic": "Use resistant varieties and avoid overhead irrigation.",
+          "chemical": "Apply fungicides like metalaxyl or copper oxychloride."
+        }
+      },
+      "tuta_absoluta_p": {
+        "cause": "Infestation by tomato leaf miner (Tuta absoluta).",
+        "treatment": {
+          "organic": "Pheromone traps and neem extracts.",
+          "chemical": "Use insecticides like spinosad or emamectin benzoate."
+        }
+      },
+      "virosis_d": {
+        "cause": "Viral infection (e.g., tomato yellow leaf curl virus) transmitted by insects.",
+        "treatment": {
+          "organic": "Control insect vectors and remove infected plants.",
+          "chemical": "Apply insecticides to control whiteflies and aphids."
+        }
+      }
+    },
+    "onion": {
+      "alternaria_d": {
+        "cause": "Fungal infection caused by Alternaria porri (purple blotch).",
+        "treatment": {
+          "organic": "Use crop rotation, improve air circulation, and apply compost tea.",
+          "chemical": "Apply fungicides like mancozeb or chlorothalonil."
+        }
+      },
+      "bulb_blight_d": {
+        "cause": "Fungal or bacterial infection affecting onion bulbs.",
+        "treatment": {
+          "organic": "Use well-drained soil and avoid waterlogging.",
+          "chemical": "Apply appropriate fungicides like carbendazim."
+        }
+      },
+      "caterpillars_p": {
+        "cause": "Infestation by caterpillars feeding on onion foliage.",
+        "treatment": {
+          "organic": "Use neem oil or introduce natural predators like birds.",
+          "chemical": "Apply insecticides such as spinosad or lambda-cyhalothrin."
+        }
+      },
+      "fusarium_d": {
+        "cause": "Basal rot caused by Fusarium oxysporum.",
+        "treatment": {
+          "organic": "Rotate crops and use compost with Trichoderma.",
+          "chemical": "Apply fungicides like thiophanate-methyl."
+        }
+      },
+      "healthy_leaf": {
+        "cause": "No disease present.",
+        "treatment": {
+          "organic": "Continue with good cultivation practices.",
+          "chemical": "Not applicable."
+        }
+      },
+      "virosis_d": {
+        "cause": "Viral infection causing distorted growth and chlorosis.",
+        "treatment": {
+          "organic": "Control insect vectors and remove infected plants.",
+          "chemical": "Apply insecticides to control vectors; no direct treatment for virus."
+        }
+      }
+    }
+  }
+}
